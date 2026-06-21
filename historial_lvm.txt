@@ -1,0 +1,41 @@
+    1  sudo fdisk -l
+    2  ssh-keygen -t ed25519
+    3  cat $HOME/.ssh/*.pub
+    4  git clone git@github.com:luluuRmlla/TP2_gomez_luna.git
+    5  m
+    6  sudo fdisk /dev/sdd
+    7  free
+    8  free -h
+    9  sudo mkswap /dev/sdd1
+   10  free -h
+   11  sudo swapon /dev/sdd1
+   12  free -h
+   13  swapon -s
+   14  cat /proc/swaps
+   15  sudo fdisk /dev/sdc
+   16  sudo pvcreate /dev/sdd2 /dev/sdd3 /dev/sdd5 /dev/sdd6 /dev/sdc1 /dev/sdc2
+   17  sudo pvremove /dev/sdd2 /dev/sdd3 /dev/sdd5 /dev/sdd6 /dev/sdc1 /dev/sdc2
+   18  sudo wipefs -a /dev/sdd2 /dev/sdd3 /dev/sdd5 /dev/sdd6 /dev/sdc1 /dev/sdc2
+   19  sudo pvcreate /dev/sdd2 /dev/sdd3 /dev/sdd5 /dev/sdd6 /dev/sdc1 /dev/sdc2
+   20  sudo pvs
+   21  sudo vgcreate vg_datos /dev/sdc1 /dev/sdd2
+   22  sudo vgs
+   23  sudo pvs
+   24  sudo vgcrate vg_web /dev/sdc2
+   25  sudo vgcreate vg_web /dev/sdc2
+   26  sudo pvs
+   27  sudo lvcreate -L vg_web -n lv_web1
+   28  sudo lvcreate -L vg_web -n lv_web2
+   29  sudo lvcreate -L 1G vg_web -n lv_web1
+   30  sudo lvcreate -L 512M vg_web -n lv_web2
+   31  sudo lvcreate -L 512M vg_web -n lv_web3
+   32  sudo lvs
+   33  sudo pvs
+   34  sudo fdisk -l
+   35  sudo mkfs.ext4 /dev/mapper/vg_web-lv_web1
+   36  sudo mkfs.ext4 /dev/mapper/vg_web-lv_web2
+   37  sudo mkfs.ext4 /dev/mapper/vg_web-lv_web3
+   38  sudo pvs > pvs.txt
+   39  sudo vgs > vgs.txt
+   40  sudo lvs > lvs.txt
+   41  history > historial_lvm.txt 
